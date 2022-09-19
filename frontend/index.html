@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>item lister</h1>
+    </header>
+    <main class="main-section">
+        <h2>Add items</h2>
+        <form class="form">
+            <input type="text" name="text" value=" ">
+            <button class="btn" type="submit">submit</button>
+        </form>
+        <div class="items-container">
+            <h2 class="items-cont">items</h2>
+            <div class="items">
+                <!-- <div class="items-list">
+                <p class="cont">items-1</p>
+                </div> -->
+            </div>
+
+
+        </div>
+    </main>
+    <!-- scripts -->
+    <script>
+        const input = document.querySelector('input');
+        const form = document.querySelector('form');
+        const items = document.querySelector('.items')
+        const container = document.querySelector('.items-container')
+
+        form.addEventListener('submit', function(event){
+            event.preventDefault();
+            // alert(input.value);
+            const html = `
+            <div class="items-list">
+                    <p class="cont">${input.value}</p>
+                </div>
+`
+            items.insertAdjacentHTML('beforeend' , html)
+            input.value = '';
+
+        })
+
+
+
+
+        function createNew (){
+            let create = document.createElement('p');
+                create.textContent = input.value;
+                // console.log(create)
+                return create
+            }
+
+            // document.querySelector('.btn').addEventListener('click')
+
+    </script>
+</body>
+</html>
